@@ -1,0 +1,50 @@
+[
+  {
+    "make": "Ford",
+    "model": "Fiesta",
+    "years": "2012",
+    "type": "Hatchback",
+    "zeroToSixty": 23.00,
+    "price": 3000
+  },
+  {
+    "make": "Volkswagen",
+    "model": "Golf",
+    "years": "2015",
+    "type": "Hatchback",
+    "zeroToSixty": 12.00,
+    "price": 12000
+  },
+  {
+    "make": "BMW",
+    "model": "3.25i",
+    "years": "2013",
+    "type": "Saloon",
+    "zeroToSixty": 9.50,
+    "price": 15000
+  },
+  {
+    "make": "Audi",
+    "model": "S4",
+    "years": "2015",
+    "type": "Saloon",
+    "zeroToSixty": 8.30,
+    "price": 17500
+  },
+  {
+    "make": "Mercedes",
+    "model": "C200",
+    "years": "2018",
+    "type": "Saloon",
+    "zeroToSixty": 8.00,
+    "price": 25000
+  },
+  {
+    "make": "Toyota",
+    "model": "Land Cruiser",
+    "years": "2018",
+    "type": "Suv",
+    "zeroToSixty": 12.00,
+    "price": 45000
+  }
+]
