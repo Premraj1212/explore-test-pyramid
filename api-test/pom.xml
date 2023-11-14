@@ -17,7 +17,7 @@
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <restassured.version>4.5.1</restassured.version>
         <testng.version>7.6.1</testng.version>
-        <cucumber.version>7.2.3</cucumber.version>
+        <cucumber.version>7.14.0</cucumber.version>
         <javafaker.version>1.0.2</javafaker.version>
         <jackson-databind.version>2.15.0</jackson-databind.version>
     </properties>
@@ -138,7 +138,7 @@
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>
-                            <value>2</value>
+                            <value>1</value>
                         </property>
                     </properties>
                     <includes>

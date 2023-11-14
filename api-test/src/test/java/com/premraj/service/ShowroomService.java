@@ -1,12 +1,14 @@
 package com.premraj.service;
 
 import com.premraj.helper.JsonHelper;
+import com.premraj.helper.ReportHelper;
 import com.premraj.helper.RunHelper;
 import com.premraj.model.Car;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.testng.Assert;
@@ -17,23 +19,29 @@ import java.util.stream.Collectors;
 
 @Service
 public class ShowroomService {
+    private static final Logger logger = LoggerFactory.getLogger(ShowroomService.class);
 
     @Value("${showroom.service.api.url}")
     private String url;
 
     Car[] showroomCars;
-    public void retreiveCars(String model_type) {
+    Response retrieveCarResponse = null;
+    public void retrieveCars(String model_type) {
         RunHelper.addRunData("modelType",model_type);
-        showroomCars =
+
+        retrieveCarResponse =
         RestAssured.given()
                 .contentType(ContentType.JSON)
                 .get(url+model_type)
                 .then()
                 .statusCode(200)
-                .and()
-                .extract()
-                .body()
-                .as(Car[].class);
+                .extract().
+                response();
+
+        showroomCars = retrieveCarResponse.then().extract().body().as(Car[].class);
+
+        logger.info("#############>> Retrieve Cars API Response"+retrieveCarResponse.prettyPrint());
+        ReportHelper.addRequestResponseToHtmlReport(null,response,url+model_type);
     }
 
 
@@ -44,8 +52,12 @@ public class ShowroomService {
                 .filter(car -> car.getType().equals(modelType))
                 .collect(Collectors.toList());
 
+        logger.info("#######>>Expected car list from data source :: "+ exCarsLst);
+
         List<Car> actualCarLst = Arrays.stream(showroomCars)
                 .collect(Collectors.toList());
+
+        logger.info("********>>Actual car list from API Service :: "+ actualCarLst);
 
         Assert.assertTrue(exCarsLst.size() == actualCarLst.size() && exCarsLst.containsAll(actualCarLst)
         && actualCarLst.containsAll(exCarsLst));
@@ -56,6 +68,7 @@ public class ShowroomService {
                RestAssured.given()
                        .contentType(ContentType.JSON)
                        .get(url+model_type);
+        ReportHelper.addRequestResponseToHtmlReport(null,response,url+model_type);
     }
 
     public void validateCarDetailsNotReturned(int httpStatus) {

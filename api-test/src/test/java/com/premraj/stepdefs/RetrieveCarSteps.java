@@ -1,6 +1,5 @@
 package com.premraj.stepdefs;
 
-import com.premraj.service.AppStatus;
 import com.premraj.service.ServiceStatus;
 import com.premraj.service.ShowroomService;
 import io.cucumber.java.en.And;
@@ -33,7 +32,7 @@ public class RetrieveCarSteps {
 
     @When("the user query for cars using {}")
     public void theUserQueryForCarsUsingModel_type(String model_type) {
-        showroomService.retreiveCars(model_type);
+        showroomService.retrieveCars(model_type);
     }
 
     @And("validate all details presented by car service")

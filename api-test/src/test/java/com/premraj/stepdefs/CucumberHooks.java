@@ -1,6 +1,7 @@
 package com.premraj.stepdefs;
 
 import com.premraj.helper.RunHelper;
+import com.premraj.helper.ScenarioStorage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -14,8 +15,9 @@ public class CucumberHooks {
 //    private ApplicationContext applicationContext;
 
     @Before
-    public void beforeScenario(){
+    public void beforeScenario(Scenario scenario){
         RunHelper.initRunData();
+        ScenarioStorage.putScenario(scenario);
     }
 
     @AfterStep
