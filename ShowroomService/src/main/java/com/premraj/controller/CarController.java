@@ -22,7 +22,7 @@ public class CarController {
     @GetMapping(value = "/api/cars/{type}",produces = "application/json")
     public ResponseEntity<List<Car>> getCarByTheType(@PathVariable String type){
         List<Car> listOfCar = carService.getCars(type);
-        if (listOfCar==null) throw new CarNotFoundException("Car Type not found");
+        if (listOfCar==null || listOfCar.isEmpty()) throw new CarNotFoundException("Car Type not found");
         else{
             return new ResponseEntity<>(listOfCar, HttpStatus.OK);
         }

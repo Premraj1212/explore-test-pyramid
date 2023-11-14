@@ -42,11 +42,9 @@ public class ShowroomService {
         Car[] expectedCars = JsonHelper.convertJsonFileToObject("src/test/resources/data/ExpectedCars.json",Car[].class);
         List<Car> exCarsLst = Arrays.stream(expectedCars)
                 .filter(car -> car.getType().equals(modelType))
-                .sorted()
                 .collect(Collectors.toList());
 
         List<Car> actualCarLst = Arrays.stream(showroomCars)
-                .sorted()
                 .collect(Collectors.toList());
 
         Assert.assertTrue(exCarsLst.size() == actualCarLst.size() && exCarsLst.containsAll(actualCarLst)
