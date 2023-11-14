@@ -20,7 +20,6 @@ Showroom microservices and a shopping web application under test
 | DI             | SpringBoot                   | 
 | Test Framework | jUnit5 and TestNG            | 
 | Reporting      | cucumber and surefire report |
-|Containerization| Docker                       |
 
 ## Restful API Service Development
 
@@ -76,10 +75,10 @@ http://localhost:8020/api/cars/{type}
 
 ### Framework Supports
 
-| OS        | Browsers      |Run Modes| Screenshots            |Parallelism|
-| --------- | --------------|---------|------------------------|-----------|
-| Mac       | Chrome/Firefox| UI/grid | On every test step     | Yes       |
-| Windows   | Chrome/Firefox| UI/grid | On every test step     | Yes       | 
+| OS        | Browsers      | Run Modes | Screenshots            |Parallelism|
+| --------- | --------------|-----------|------------------------|-----------|
+| Mac       | Chrome/Firefox| UI        | On every test step     | Yes       |
+| Windows   | Chrome/Firefox| UI        | On every test step     | Yes       | 
 
 ### Scenarios Covered
 * Filter Products
@@ -110,15 +109,10 @@ chrome, firefox
 
 spring profiles -
 * default - application.properties
-* grid - application-remote.properties
 
 Run tests in local:
 ```$xslt
 mvn clean test -Dbrowser=chrome -Dcucumber.filter.tags="@e2e"
-```
-Run tests in grid:
-```$xslt
-mvn clean test -Dspring.profiles.active=remote -Dbrowser=chrome -Dcucumber.filter.tags="@e2e"
 ```
 
 
@@ -126,17 +120,15 @@ mvn clean test -Dspring.profiles.active=remote -Dbrowser=chrome -Dcucumber.filte
 Cucumber reports generated after tests run:
 refer to report path : target>>cucumber-report.html
 
-Sample screenshot of report for the execution below:
+### Sample screenshot of UNIT Test Report for the execution below:
+![maven_surefire Report](ShowroomService/image/maven-surefire-unit-test-report.PNG)
+### Sample screenshot of Acceptance Report for the execution below:
 
 ![cucumber Report](ui-test/image/shopping-store-test-report.PNG)
 
-### Selenium Grid Test Execution
+### Sample screenshot of API Test Report for the execution below:
 
-![Selenium_Grid_Test_Execution](image/grid_test_execution.PNG)
+![API_Test_Execution](api-test/image/cucumber-api-test-report.PNG)
 
 ### Logs
 * Logs generated at target>>logs>> test-execution.log
-
-### Docker
-Docker setup for selenium grid infrastructure for the test execution
-to refer docker-compose.yaml file.
