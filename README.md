@@ -6,8 +6,8 @@ Showroom microservices and a shopping web application under test
 ### Showroom Car API services developed as Backend Project
 ### unit, integration tests were developed for the API service.
 ### UI end-to-end tests developed for different web application
-
 ### Application developed and tested using SpringBoot framework 
+
 
 ## Stack
 
@@ -22,6 +22,28 @@ Showroom microservices and a shopping web application under test
 | Reporting      | cucumber and surefire report |
 |Containerization| Docker                       |
 
+## Restful API Service Development
+
+### Developed Microservices using SpringBoot 
+* Showroom Car Service suppose to return list of car details based on car type 
+* Car type is passed as path variable as input for the service and 
+* Data were maintained using H2 in memory database 
+* Spring JPA used to interact and perform DB operation 
+* microservice were developed in layers such as controller, repository, data and service layer. 
+* Swagger file is implemented for the service developed.
+
+### Run App in local:
+```$xslt
+mvn spring-boot:run 
+```
+Launch Swagger:
+```$xslt
+http://localhost:8020/swagger-ui/index.html
+```
+Retrieve Cars endpoint:
+```$xslt
+http://localhost:8020/api/cars/{type}
+```
 
 ## unit test
 
@@ -61,7 +83,7 @@ Showroom microservices and a shopping web application under test
 
 ### Scenarios Covered
 * Filter Products
-* Validations of Products added to Cart
+* Products added to Cart
 * A complete product purchase journey
 
 ### Approach
@@ -70,7 +92,6 @@ Brief description on the important packages.
 
 ### features
 * Spring SimpleThreadScope is leveraged to achieve parallel test.
-* Spring AOP is introduced for managing services.
 * All data are model as a business entity
 * Page objects and interactions are maintained ui_layer package
 * Java Reflections is used for grouping and abstractions.
@@ -107,7 +128,7 @@ refer to report path : target>>cucumber-report.html
 
 Sample screenshot of report for the execution below:
 
-![cucumber Report](image/todd_mvc_app_test_report.png)
+![cucumber Report](ui-test/image/shopping-store-test-report.PNG)
 
 ### Selenium Grid Test Execution
 
