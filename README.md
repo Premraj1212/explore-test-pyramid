@@ -130,5 +130,11 @@ refer to report path : target>>cucumber-report.html
 
 ![API_Test_Execution](api-test/image/cucumber-api-test-report.PNG)
 
+### Sample screenshot of swagger ui below:
+
+
+![swagger_ui](ShowroomService/image/swagger-ui.PNG)
+
+
 ### Logs
 * Logs generated at target>>logs>> test-execution.log
