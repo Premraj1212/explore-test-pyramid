@@ -13,7 +13,7 @@ Showroom microservices and a shopping web application under test
 
 | Category       | Value                        |
 | -------------- |------------------------------|
-| Language       | Java 11                      | 
+| Language       | Java 17                      | 
 | Build Tool     | Maven                        |
 | Test Tool      | Selenium WebDriver           | 
 | BDD            | cucumber                     | 
