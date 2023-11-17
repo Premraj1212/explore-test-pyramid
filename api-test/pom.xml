@@ -3,23 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.2</version>
-        <relativePath/>
+        <artifactId>explore-test-pyramid</artifactId>
+        <groupId>com.premraj</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>api-test</artifactId>
 
     <properties>
-        <java.version>11</java.version>
-        <maven.surefire.version>2.22.2</maven.surefire.version>
-        <restassured.version>4.5.1</restassured.version>
-        <testng.version>7.6.1</testng.version>
+        <java.version>17</java.version>
+        <maven.surefire.version>3.0.0-M4</maven.surefire.version>
+        <testng.version>7.8.0</testng.version>
         <cucumber.version>7.14.0</cucumber.version>
         <javafaker.version>1.0.2</javafaker.version>
-        <jackson-databind.version>2.15.0</jackson-databind.version>
     </properties>
 
     <dependencies>
@@ -43,7 +41,6 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-
         </dependency>
 
 
@@ -97,13 +94,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-
         </dependency>
 
     </dependencies>
